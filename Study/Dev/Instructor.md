@@ -1,4 +1,4 @@
-Pydantic을 외부 LLM에 연결해주는 라이브러리 [[Pydantic - BaseModel]]
+Pydantic을 외부 LLM에 연결해주는 라이브러리 [[Pydantic]]
 LLM은 기본적으로 텍스트를 출력하지만, Instructor를 사용하여 LLM 응답을 즉시 Pydantic 모델로 받을 수 있음
 구조화된 출력을 얻기 위한 표준 도구가 됨
 ```

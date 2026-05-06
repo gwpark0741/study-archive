@@ -1,0 +1,2 @@
+- Identity: 폴더를 파이썬이 인식할 수 있는 패키지로 간주하도록 함
+- Initialization: 패키지, 모듈 import 시, `__init__.py` 내 코드가 한 번 실행 됨
