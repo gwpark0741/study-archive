@@ -1,0 +1,32 @@
+## 구조
+- `pipeline/`
+    - 파이프라인 내부 계약과 조립 계층
+	- `pipeline/state.py`
+	    - LangGraph state 계약
+	    - 노드들이 주고받는 공통 데이터 구조 정의
+	- `pipeline/schema.py`
+	    - LLM 출력 검증 계약
+	    - raw JSON을 검증하는 Pydantic 모델
+	- `pipeline/nodes/`
+	    - 그래프에서 실제 실행되는 작업 단위
+	    - 예시
+			- `pipeline/nodes/preprocess.py`
+			    - 영상 길이 계산, 오디오 제거, 업로드 같은 입력 준비
+			- `pipeline/nodes/track_extraction.py`
+			    - 프롬프트 렌더링, Gemini 호출, JSON 파싱, Pydantic 검증, state 업데이트
+	- `pipeline/graph.py`
+	    - 노드 연결
+	    - START -> preprocess -> track_extraction -> END
+- `clients/`
+    - 외부 모델/API 호출 래퍼
+	- `clients/gemini_client.py`
+	    - Gemini client 생성, 파일 업로드, 콘텐츠 생성 호출
+- `tools/`
+    - 도메인 독립적인 로컬 유틸
+	- `tools/video_utils.py`
+	    - ffprobe, ffmpeg 기반 영상 처리
+- `prompts/`
+    - 프롬프트 템플릿
+- `run.py`
+    - CLI 진입점
+    - config 로드, 초기 state 생성, graph 실행

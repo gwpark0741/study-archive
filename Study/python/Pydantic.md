@@ -88,3 +88,10 @@ class Entity(BaseModel):
 			payload.pop("children", None) # children이 비어있으면 직렬화 결과에서 제거
 		return payload
 ```
+## Method
+```python
+- model_validate(...)
+    - dict -> Pydantic 모델 객체
+- model_dump()
+    - Pydantic 모델 객체 -> dict
+```
